@@ -6,7 +6,7 @@ class Hello
 
 		System.out.println("---Hello World on Branch Feature2---");
 		System.out.println("---Hello World on Branch Feature1---");
->>>>
+
 	}
 
 
