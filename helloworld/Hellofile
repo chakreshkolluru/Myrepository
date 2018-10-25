@@ -1,0 +1,22 @@
+
+pipeline{
+	agent any
+	stages{
+		stage('Build'){
+			steps{
+				sh "javac helloworld/Hello.java"
+			}
+		}
+		stage('Run'){
+			steps{
+				sh "java -cp helloworld Hello"
+			}
+		}
+
+	}
+	post{
+			success{
+				echo "Build is Successful"
+			}
+		}
+}
