@@ -1,11 +1,16 @@
 
-node{
-	stage 'checkout scm'
-	checkout scm
-	
-	stage 'build'
-	sh 'javac helloworld/Hello.java'
-
-	stage 'Run'
-	sh 'java -cp helloworld Hello'
+pipeline{
+	agent any
+	stages{
+		stage('Build'){
+			steps{
+				sh 'javac helloworld/Hello.java'
+			}
+		}
+		stage('Run'){
+			steps{
+				sh 'java -cp helloworld Hello'
+			}
+		}
+	}
 }
