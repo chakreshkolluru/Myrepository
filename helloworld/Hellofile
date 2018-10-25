@@ -1,5 +1,7 @@
 
 node{
+	stage 'checkout scm'
+	checkout scm
 	
 	stage 'build'
 	sh 'javac helloworld/Hello.java'
