@@ -1,22 +1,9 @@
 
-pipeline{
-	agent any
-	stages{
-		stage('Build'){
-			steps{
-				sh "javac helloworld/Hello.java"
-			}
-		}
-		stage('Run'){
-			steps{
-				sh "java -cp helloworld Hello"
-			}
-		}
+node{
+	
+	stage 'build'
+	sh 'javac helloworld/Hello.java'
 
-	}
-	post{
-			success{
-				echo "Build is Successful"
-			}
-		}
+	stage 'Run'
+	sh 'java -cp helloworld Hello'
 }
