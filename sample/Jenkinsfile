@@ -17,6 +17,7 @@ pipeline{
 	post{
 			success{
 				echo "Build is Successful"
+				echo "Trigger using post-commit"
 			}
 		}
 }
