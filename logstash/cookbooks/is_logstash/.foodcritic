@@ -1,0 +1,3 @@
+# Ignored the below rule because of license error.
+
+foodcritic . --tags ~FC078
