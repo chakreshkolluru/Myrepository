@@ -1,16 +1,21 @@
-
-pipeline{
-	agent any
-	stages{
-		stage('Build'){
-			steps{
-				sh 'javac helloworld/Hello.java'
-			}
-		}
-		stage('Run'){
-			steps{
-				sh 'java -cp helloworld Hello'
-			}
-		}
-	}
+node{
+    stage 'checkout'
+    checkout scm
+    
+    stage 'compile'
+    def mying = docker.image('ubuntu:18.04')
+    mying.inside{
+        sh "hostname"
+	sh "apt update"
+	sh "apt install -y openjdk-8-jdk"
+        sh "javac helloworld/Hello.java"
+        sh 'java -cp helloworld Hello'
+    }
+    
+     mying.inside{
+        sh "hostname"
+        
+    }
+    
+    
 }
