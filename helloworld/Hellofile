@@ -3,17 +3,19 @@ node{
     checkout scm
     
     stage 'compile'
-    def mying = docker.image('ubuntu:18.04')
+    def mying = docker.image('openjdk:8')
     mying.inside{
         sh "hostname"
-	sh "apt update"
-	sh "apt install -y openjdk-8-jdk"
+	sh "ls -la"
+	
         sh "javac helloworld/Hello.java"
         sh 'java -cp helloworld Hello'
     }
     
      mying.inside{
         sh "hostname"
+	
+	sh "ls -la"
         
     }
     
